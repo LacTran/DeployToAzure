@@ -1,8 +1,12 @@
 extends layout
 
 block content
+
     h1= 'Places to visit in Vietnam'
-    ul
+
+    ul.list-group
         each place in places
-            li= place.name + ': ' + place.region
+            li.list-group-item= place.name + ': ' + place.region
+
+
 

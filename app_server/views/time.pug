@@ -2,7 +2,7 @@ extends layout
 
 block content
     h1= 'Good time to visit'
-    ul
+    ul.list-group
         each time in times
-            li= time.time + ': ' + time.place + ' (' + time.region + ')'
+            li.list-group-item= time.time + ': ' + time.place + ' (' + time.region + ')'
 
