@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    h1= 'Places to visit in Vietnam'
+    ul
+        each place in places
+            li= place.name + ': ' + place.region
+

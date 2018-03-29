@@ -8,7 +8,7 @@ const ctrlTime = require('../controllers/ctrlTime');
 
 // Defining the routes and associating the routes to their corresponding controllers
 router.get('/', ctrlMain.index);  // Home page
-router.get('/places', ctrlPlaces.placelist);
+router.get('/place', ctrlPlaces.placelist);
 router.get('/time', ctrlTime.timelist);
 
 module.exports = router;
