@@ -21,10 +21,10 @@ const timeList = function (req,res) {
 
 const addTime = function (req,res) {
 
-    timeModel.create(req.body, function (err,newTime) {
+    timeModel.create(req.body, function(err,newTime) {
 
         if (err){
-            res.status(404).json(err);
+            res.status(400).json(err);
         }
         else{
             res.status(201).json(newTime);

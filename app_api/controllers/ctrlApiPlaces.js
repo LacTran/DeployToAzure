@@ -22,10 +22,10 @@ const placeList = function (req,res) {
 const addPlace = function (req,res) {
 
 
-    placeModel.create(req.body, function (err,newPlace) {
+    placeModel.create(req.body, function(err,newPlace) {
 
         if (err) {
-            res.status(404).json(err);
+            res.status(400).json(err);
         }
         else{
             res.status(201).json(newPlace);
