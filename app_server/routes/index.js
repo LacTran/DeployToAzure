@@ -11,4 +11,8 @@ router.get('/', ctrlMain.index);  // Home page
 router.get('/place', ctrlPlaces.placelist);
 router.get('/time', ctrlTime.timelist);
 
+router
+    .route('/place/add')
+    .get(ctrlPlaces.showForm)
+    .post(ctrlPlaces.addData);
 module.exports = router;
