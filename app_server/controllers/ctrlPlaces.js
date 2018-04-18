@@ -3,19 +3,35 @@ const apiURL = require('./apiURL');
 
 
 const placelist = function(req, res){
-    res.render('place',{
-        places:
-            [
-                {name:'Vung Tau', region: 'Southern'},
-                {name:'Nha Trang', region: 'Southeast'},
-                {name:'Da Lat', region: 'Southern'},
-                {name:'Sa Pa', region: 'Northern'},
-                {name:'Da Nang', region: 'Middle'},
-                {name:'Phan Thiet', region: 'Southeast'},
-                {name:'Lao Cai', region: 'Northern'}
-            ]});
-};
+   const path = '/api/place';
+   const requestOptions = {
+       url : apiURL.server + path,
+       method: 'GET',
+       json: {},
+       qs : {}
+   };
 
+    request(
+        requestOptions,
+        function (err, response, body){
+            if (err){
+                res.render('error', {message: err.message});
+            } else if (response.statusCode !== 200){
+                res.render('error', {message: 'Error accessing API: ' +
+                    response.statusMessage +
+                    ' ('+ response.statusCode + ')' });
+            } else if (!(body instanceof Array)) {
+                res.render('error', {message: 'Unexpected response data'});
+            } else if (!body.length){
+                res.render('error', {message: 'No documents in collection'});
+            } else {
+                res.render('place', {places: body});
+            }
+        }
+    );
+
+};
+/*
 const showForm = function(req, res) {
     res.render('place_add');
 };
@@ -44,13 +60,13 @@ const addData = function(req, res) {
                 ' (' + response.statusCode + ')' });
             }
         }
-    )
+    );
 
 };
 
-
+*/
 module.exports = {
-    placelist,
-    showForm,
-    addData
+    placelist//,
+    //showForm,
+    //addData
 };
