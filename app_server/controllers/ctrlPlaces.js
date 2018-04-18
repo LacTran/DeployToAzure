@@ -20,7 +20,7 @@ const showForm = function(req, res) {
     res.render('place_add');
 };
 const addData = function(req, res) {
-    const path = 'api/places';
+    const path = 'api/place';
 
     const postdata = {
         name: req.body.name,
@@ -46,7 +46,7 @@ const addData = function(req, res) {
         }
     )
 
-    };
+};
 
 
 module.exports = {
