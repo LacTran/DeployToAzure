@@ -37,7 +37,7 @@ const addData = function(req, res) {
         requestOptions,
         function (err, response) {
             if (response.statusCode === 201){
-                res.redirect('/place')
+                res.redirect('/place');
             } else {
                 res.render('error', {message: 'Error adding data: ' +
                 response.statusMessage +
